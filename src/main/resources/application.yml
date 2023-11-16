@@ -1,0 +1,26 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://10.29.22.116:3306/hr_manager?characterEncoding=utf8&autoReconnect=true&useSSL=false
+    username: root
+    password: dangerous
+
+    hikari:
+      auto-commit: true
+      connection-timeout: 10000
+      idle-timeout: 30000
+      maximum-pool-size: 15
+      minimum-idle: 5
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+    show-sql: true
