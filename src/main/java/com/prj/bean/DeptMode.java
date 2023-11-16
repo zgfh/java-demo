@@ -3,14 +3,15 @@ package com.prj.bean;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "dept")
-public class DeptMode {
+public class DeptMode implements Serializable {
     @Id
     @GeneratedValue(generator="system_uuid")
     @GenericGenerator(name = "system_uuid",strategy = "uuid")
-    private String id;//部门编号
+    private String id;//编号
     private String manager;//部门经理
     private String name;//部门名字
 

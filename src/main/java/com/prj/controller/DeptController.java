@@ -35,7 +35,6 @@ public class DeptController {
                 Predicate p=cBuilder.conjunction();
                 if (!q.isEmpty()){
                     p=cBuilder.and(p,cBuilder.or(cBuilder.like(root.get("name"),q),cBuilder.like(root.get("manager"),q),cBuilder.like(root.get("id"),q)));
-
                 }
 
                 return p;
