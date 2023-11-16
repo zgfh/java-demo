@@ -1,12 +1,15 @@
 package com.prj.bean;
 
+import org.hibernate.annotations.GenericGenerator;
+
 import javax.persistence.*;
 
 @Entity
 @Table(name = "dept")
 public class DeptMode {
     @Id
-    @GeneratedValue
+    @GeneratedValue(generator="system_uuid")
+    @GenericGenerator(name = "system_uuid",strategy = "uuid")
     private String id;
     private String name;
 
