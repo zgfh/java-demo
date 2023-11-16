@@ -10,8 +10,9 @@ public class DeptMode {
     @Id
     @GeneratedValue(generator="system_uuid")
     @GenericGenerator(name = "system_uuid",strategy = "uuid")
-    private String id;
-    private String name;
+    private String id;//部门编号
+    private String manager;//部门经理
+    private String name;//部门名字
 
     public String getId() {
         return id;
@@ -27,5 +28,13 @@ public class DeptMode {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getManager() {
+        return manager;
+    }
+
+    public void setManager(String manager) {
+        this.manager = manager;
     }
 }
