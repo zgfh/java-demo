@@ -2,20 +2,21 @@ package com.prj.bean;
 
 import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "employee_kpi")
-public class EmployeeKpiMode {
+public class EmployeeKpiMode implements Serializable {
     @Id
     @GeneratedValue(generator="system_uuid")
     @GenericGenerator(name = "system_uuid",strategy = "uuid")
     private String id;//部门编号
 
     private String employeeid;//员工编号
+    @ManyToOne(cascade = CascadeType.REFRESH,fetch = FetchType.EAGER)
+    @JoinColumn(name = "employeeid", referencedColumnName = "id",insertable = false,updatable = false)
+    private EmployeeMode employeeMode;
 
     private String leader;//评价人
     private String kpi;//当年考核值
@@ -68,5 +69,13 @@ public class EmployeeKpiMode {
 
     public void setCheck_date(Float check_date) {
         this.check_date = check_date;
+    }
+
+    public EmployeeMode getEmployeeMode() {
+        return employeeMode;
+    }
+
+    public void setEmployeeMode(EmployeeMode employeeMode) {
+        this.employeeMode = employeeMode;
     }
 }

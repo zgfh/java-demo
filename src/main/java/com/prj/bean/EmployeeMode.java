@@ -3,10 +3,11 @@ package com.prj.bean;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "employee")
-public class EmployeeMode {
+public class EmployeeMode implements Serializable {
     @Id
     @GeneratedValue(generator="system_uuid")
     @GenericGenerator(name = "system_uuid",strategy = "uuid")
